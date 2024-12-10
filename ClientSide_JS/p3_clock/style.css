@@ -1,0 +1,35 @@
+/* All margins and padding = 0 */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* heading container */
+.heading_container{
+    background-color: rgb(255, 0, 157);
+    text-align: center;
+    margin: 20px 20px;
+    border-radius: 30px;
+    border: 2px solid rgb(0, 157, 255);
+    padding: 20px 0px;
+}
+
+/* main heading */
+#main_heading{
+    color: white;
+    font-family: 'Trebuchet MS';
+}
+
+/* date time container */
+.date_time_container{
+    background-color: black;
+    text-align: center;
+    margin: 20px 20px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* date and time properties*/
+#date, #time{
+    color: white;    
+}

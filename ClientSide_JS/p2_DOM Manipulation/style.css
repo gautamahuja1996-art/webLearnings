@@ -1,0 +1,32 @@
+/* Let's make all the default margins and padding given by browser as 0 */
+/* Targeting all elements */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Targeting a class using . (class selector) */
+.container
+{
+    background-color: aqua;
+    border: 2px solid black;
+
+    /* First parameter is margin in Y direction, then X direction */
+    margin: 5px 3px;
+    padding: 10px 3px;
+}
+
+/* Targeting an id using # (id selector) */
+#click{
+    border: 2px solid blue;
+    margin: 20px 5px;
+    padding: 5px;
+}
+
+/* h1 container class will be added to an element through JS: DOM manipulation */
+.h1_container{
+    background-color: blueviolet;
+}
+.white_text{
+    color: white;
+}

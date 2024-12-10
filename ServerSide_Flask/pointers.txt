@@ -1,0 +1,151 @@
+Flask is a python framework used for writing server side code. [How to handle a request, which page to serve when etc.]
+debug=True is used to enable : Automatic reloading, debugging the code and handling the errors. Also, while creating the website at production level (available to the public), make sure to turn off the debug option as if it's left on and if a user using your website finds a error/bug, flask will report the details error message, along with code to that user, which can be misused.
+
+OUTPUT when you run the app--> 
+
+'
+ * Serving Flask app 'main'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 117-426-519
+'
+
+It clearly states that, debugger is on and provied a PIN to interact with the flask debugger.
+It also gives a warning, not to use it at production level.
+
+URL_FOR function: 
+(.) url_for is a flask specific function which is used to generate the url for endpoints or static files such as assets/images/stylesheets/script_js files etc. The benefit of this is that you don't need to harcode the urls in your scripts, flask will do that for you.
+(.) Syntax: 
+url_for(endpoint, other arguments)
+(.) url_for('static', filename='1,png')--> static is a special enpoint so that flask onws that we are about the generate a url for a static file.
+(.) url_for('/about')--> Here we are generating the url for about endpoint defined in flask app.
+(.) {{url_for('static', filename = 'assets/favicon.ico')}} generates /static/assets/favicon.ico, without any inverted commas.
+
+JINJA TEMPLATING: Jinja templating is an important and popular templating engine used by python frameworks like flask, which helps us to make the static html pages (hardcoded with information) into a dynamic webpage. 
+(.) When you install flask, Jinja2 is automatically installed.
+(.) Use Jinga templating we can do the following:
+1. Variable substitution: 
+(.) Passing information to an HTML templates in the form of variables through python code (server side code), which means you can introduce dynamic nature to a webpage.
+(.) Implementation:
+------------------------------------------------------------------------------------------------------------
+    @app.route('/')
+    def index():
+        return render_template('index.htlm', name = 'Gautam', age = '27')
+While serving the index.html page to the user, the name and age variables in html page will be replaced by the information ('Gautam' and 27)
+------------------------------------------------------------------------------------------------------------
+2. TEMPLATE INHERITENCE:
+(.) You make a base template (html file) which have all the common features that all the webpages will hold like navigation bar, footer, etc and then extend that template to create specific webpages.
+(.) To do so, follow the syntax,
+(.) Create a template file (let say base_template.html) and paste the html code in it which is going to be the same for all the webpages which will inherit for this.
+(.) In the base_template.html file, wherever you want to add the webpage specific htlm code, write,
+{% block body %}
+{% endblock %}
+(.) In the specific webpage file, let say index.html or contact.html, write on top,
+{% extends 'base_template.html' %}
+{% block body %}
+html code
+specific 
+to the page
+{% endblock %}
+
+3. CONTROL STRUCTURES: You can use python if-else/loops in an html file using Jinja templating.
+
+[Important]: pip freeze terminal command lists our all the installed packages in an environment with their versions. It is generally used to create a requirements.txt file.
+
+CONNECTING TO A DATABASE: 
+(.) If you want to connect your python script to a relational database (SQLite, MYSQL, POSTgre), there  are 2 methods-->
+------------------------------------------------------------------------------------------------------------
+1. Install a database connector like 'mysql-connector-python' in python to connect with a MYSQL database, which will allow you to write raw SQL queries in python and perform CRUD operations on your database.
+------------------------------------------------------------------------------------------------------------
+2. Install an ORM (Object-Relational-Mapping: Maps object oriented programming with Relational databases) which will help you to interact with a Relational database using OOPs technique, without the need to writing low level SQL queries.
+------------------------------------------------------------------------------------------------------------
+Let's see both ways,
+(.) To install a mysql connector, use the command, pip install mysql-connector-python.
+(.) 
+
+
+SOME THINGS ABOUT FLASK:
+(.) We can add configurations/setting to our flask app using the config function. It takes the settings/configurations as,
+--> app.config['SECRET_KEY'] = 'mysecretkey': This helps to store sensitive data.
+--> app.config['DEBUG'] = True: Enabling/Disabling debugging mode.
+--> app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024: Set maximum request size to 16 MB
+--> app.config['UPLOAD_FOLDER'] = '/path/to/uploads': Specify a folder for file uploads
+--> app.config['SQLALCHEMY_DATABASE_URI']: Helps to add the URI of db that this flask app is going to use.
+(.) The above helps us to control the behavior of our flask app.
+------------------------------------------------------------------------------------------------------------
+(.) Request module in flask deals with the request that an endpoint receives. It helps to check the type of request that the endpoint has received (POST, GET, PUT, DELETE) and helps to fetch data from the request as well.
+(.) request.method --> Returns the type of request that endpoint has received.
+(.) request.form --> Returns the form data that endpoint has recieved in the form of a python dictionary where the key is the 'name' attribute of html element and value is the actual value of the HTML elements. For example, <input type='text' name='username'> and the user has written 'Gautam Ahuja' in the textbox, so that data received would be in the format, ['username': 'Gautam Ahuja'].
+(.) To fetch form data, use, request.form.get('name attribute')
+------------------------------------------------------------------------------------------------------------
+
+SQLALCHEMY-->
+(.) It is a python module which helps us to use the ORM (object-relational-mapping) through python code/objects.
+(.) ORM engine helps us map OOP language with relational databases, which means using an ORM, you don't need to write SQL queries to perform CRUD operations onto relational DB's. It helps you to insert data into DB with the help of OOP. It manages the conversion of OOPs to SQl queries for us.
+(.) Using SQLAlchemy/ORM you can python classes and objects to add data into Relational DBs tables.
+(.) Model class-->
+--> This is at the core of an ORM engine. 
+--> It is a python/OOP class which is a representation of a table in a database.
+--> It maps the database schema (cols, dtype, constraints) with the class attributes. 
+--> The attributes/parameters of this class are table columns.
+--> The instances/objects of this class is a row in the DB table.
+--> This model class will inherit from a base class (declarative_base class in SQLAlchemy) which will handle all the ORM benefits like SQL conversion, Schema creation, DB engine (SQLlite, MYSQL, POSTGRE) binding with the script etc.
+------------------------------------------------------------------------------------------------------------
+(.) flask-sqlalchemy: It is a module which helps us to use sqlalchemy/ORM easily in our flask app. [Kind of a wrapper around sqlalchemy which helps flask app talk with Sqlalchemy. It's like a connector between our flask app and ORM engine which helps us to update DB tabels using Python classes and objects]. To install it, write 'pip install flask-sqlalchemy'
+(.) app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@mysql_server_host_address/db_name' --> This statement helps to set the database configuration of our flask app which means i am telling my flask app that it has to put data in 'db_name' after logging in with 'username' and 'password' credentials in a 'mysql' server hosted at address 'mysql_server_host_address' (localhost for now), once the connection is established.
+[IMPORTANT] NO '@' IN YOUR USERNAME OR PASSWORD.
+(.) db = SQLAlchemy(app) --> This statement creates an object of SQLAlchemy class (ORM) which creates a connection between the ORM and flask app, so that we can insert data easily into the database.
+(.) Next we create a model class which inherits from db.Model, so that we can insert data into the tables.
+[very important](.) When you run the code, it gives you an error that MySQLdb is missing which is a connector used by SQlAlchemy to connect with the database, so instead download another connector pymysql using 'pip install pymysql' and write an import statement as-->
+'''
+import pymysql
+pymysql.install_as_MySQLdb()
+'''
+------------------------------------------------------------------------------------------------------------
+
+ADDING DATA INTO DB USING PYMYSQL-->
+(.) While inserting data into db using SQL queries, don't use f string directly into the queries, to enter user entered data as the user can enter malicious code on the client end, instead sanitize your query as-->
+'''
+insert_query = "INSERT INTO gym_users (name, email) VALUES (%s, %s);"
+values = (n, e)
+cursor.execute(insert_query, values)
+'''
+
+Instead of,
+'''
+insert_query = f"INSERT INTO gym_users (name, email) VALUES ('{n}', '{e}');"
+'''
+
+where n and e are values entered by users on client's side.
+------------------------------------------------------------------------------------------------------------
+
+(.) [Making config.json file] --> In order to make this blog specific to any user, let's create a configuration file (config.json) which will hold all the user specific variables.
+(.) After extracting data from the config.json file, it can be passed into the html templates as well thrugh Jinja templating techniques.
+------------------------------------------------------------------------------------------------------------
+
+SENDING EMAIL THROUGH THE FLASK SERVER-->
+(.) We can use the flask-mail module in python which let's your flask app connect with a lot of mail servers which can help you to send emails.
+(.) It has the provision to connect with an smtp server as well.
+(.) gmail also has a smtp server at address--> 'smtp.gmail.com'.
+(.) Our flask app can connect with this server with our login credentials and send email through our account.
+(.) The password that you will submit to the smtp server won't be your gmail account password, it's an 'app password' generated on the gmail account. (new process launched by gmail where to send mails through 3rd party applications like flask, gmail gives a seperate password.)
+
+ROUTES WITH SLUGS--> 
+
+
+QUERYING THE DB-->
+
+
+FOR LOOP IN JINJA TEMPLATING-->
+{% for item in sequence %}
+    {# Your content here #}
+{% endfor %}
+
+
+
+
+

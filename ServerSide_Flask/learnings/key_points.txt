@@ -1,0 +1,42 @@
+1-->
+Jinja templating is a very powerful tool which let's you pass/write/inject pythonic type code on your webpages.
+-------------------
+We can data to the templates in one of the ways:
+a. Passing variables to the template while rendering/returning them to the client and then accessing them in the template.
+b. Passing information in the URL (in the form of slug) and accessing/processing it on the server side. after accessing the information from slug, you can directly pass it to the template (as shown in the above point) or you are fetch data related to the slug from db and pass that (as in the above point.)
+-------------------
+Once you have a variable in the template, you can perform one of the following operations as:
+a. {{variable | upper }} --> Converts the variable to uppercase.
+b. {{variable | capitalize }} --> Converts the first alphabet of the variable to caps.
+c. {{variable | lower }} --> Converts the variable to lowercase.
+d. {{variable | safe }} --> If you have passes some html code in the variable, flask doesn't renders it for safety reasons (could by injection of malicious code), but if you use 'safe' keyword, it let's you render that code on the client side.
+e. {{variable | striptags }} --> strips all the html tags from the variable. (In a comment section/contact me page, if someone tries to inject malicious html code, you can strip all the html tags.)
+f. c. {{variable | int }} --> Converts the dtype of variable to a int.
+-------------------
+We can pass any kind of data (list, dictionary) to our templates through our variables and using logical programming offered by Jinja like loops, if statements, we can control the rendering of that data on a webpage.
+[refer to loop api in main.py file]
+To access an element of a list on the template side, use {{list.0}} not {{list[0]}}
+
+
+2-->
+REDIRECTING A USER TO A DIFFERENT PAGE:
+a. You can redirect a user using the redirect class of a flask to a different endpoint/route.
+b. Why is it needed? Let's say a user a has submitted a form, or if a normal user is trying to access a admin page, in these cases you can redirect a user to different endpoints of your choice.
+c. It can be done as-->
+"return redirect(url_for("function_name of the endpoint", variable info if that endpoint is taking any))" -->
+d. Let's say we want to redirect the user to the below given endpoint as,
+endpoint-->
+'''
+@app.route('/home/<slug>')
+def home_function(slug):
+    task
+'''
+redirect statement-->
+'''
+return redirect(url_for('home_function', slug = 'value'))
+-------------------
+[VERY IMPORTANT]
+render_template just renders the webpage content on the specified route, it does not changes the route....but redirect, redirects you to a different route. It's like calling a different endpoint with all the parameters.
+-------------------
+[refer /admin on main.py]
+-------------------

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position property</title>
+
+    <style>
+/*         
+        *{
+            margin: 0;
+            padding: 0;
+        } */
+
+        /* list items are block elements by default so they are taking up the complete width. Let's make them inline-block so that we can adjust their width/height/margin/padding */
+        .list_item{
+            display: inline-block;
+            padding: 25px 10px;
+        }
+
+        .navbar{
+            background-color: black;
+            color: white;
+            height: 70px;
+        }
+
+        .container{
+            background-color: aqua;
+            width: 50vw;
+            height: 150vh;
+
+            /* to bring a block level element of some width into center horizontally (not vertically), set the margin property to auto */
+            margin: auto;
+
+            /* giving a padding so that the child container: text-center get's some space from the border of the container */
+            padding: 10px 100px 0px 0px;
+
+            /* making its position relative so that chat with us can take position according to the container (but we wont specify top/bottom etc for container so that it doesn't move) */
+            position: relative;
+        }
+
+        /* paragraph is also a block level element */
+        .text-center{
+            text-align: center;
+            border: 2px solid red;
+        }
+
+        .like_button{
+            background-color: chartreuse;
+            width: 80px;
+            height: 20px;
+            text-align: center;
+            position: relative;
+            left: 650px;
+            bottom: 40px;
+        }
+
+        .chat{
+            background-color: lightblue;
+            width: 150px;
+            height: 30px;
+            text-align: center;
+
+            /* Trying to get the text in center */
+            padding-top: 10px;
+
+            /* setting the position as absolute */
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .submit_form{
+            background-color: rgb(232, 58, 90);
+            width: 200px;
+            height: 50px;
+            text-align: center;
+
+            /* Trying to get the text in center */
+            padding-top: 25px;
+
+            /* positioning it wrt to the browser window */
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        header{
+
+            /* Sticks on the browser window at position where top/ bottom/left/right is mentioned */
+            /* doesn't scroll with the page */
+            position: sticky;
+            top: 20px;
+
+            /* the header will appear over the container div as it has a z-index of 0 */
+            z-index: 1;
+        }
+
+        .new_list{
+            list-style: square inside;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 3 sections: header,main,footer -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav_list">
+                <li class="list_item">Home</li>
+                <li class="list_item">About</li>
+                <li class="list_item">Contact us</li>
+                <li class="list_item">Account</li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <main>
+
+        <!-- main container -->
+        <div class="container">
+            
+            <!-- paragraph -->
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, porro aut reiciendis expedita ut repellendus reprehenderit dolor? Illo sint officia iure, inventore quaerat accusamus veniam esse, nihil delectus sapiente commodi?</p>
+
+            <!-- like button -->
+            <div class="like_button">Like</div>
+
+            <!-- chat with us button -->
+            <div class="chat">Chat with us</div>
+
+            <!-- submit your form button -->
+            <div class="submit_form">Submit your form</div>
+        </div>
+
+        <!-- Creating a new list -->
+        <ul class="new_list">
+            <li>Apple</li>
+            <li>Oranges</li>
+            <li>Bananas</li>
+        </ul>
+    </main>
+
+
+
+    <footer>
+
+    </footer>
+</body>
+</html>

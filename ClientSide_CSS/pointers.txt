@@ -1,0 +1,419 @@
+Html is the skeleton/layout of a webpage. CSS (Cascading style sheet) is optional, but makes website look
+beautiful and responsive (responds/changes whether you open in phone/tables/computer)
+
+DOM --> When a page is loaded in a web browser, the browser creates a tree like structure of html 
+tags (like inside html -> 1 head  + 1 body (inside body we have header, main (inside main we have 
+section (inside section we have a div(inside this div we have another div))), footer)), which is known
+as 'Document object Model'.
+
+Id--> Unique identifier for a tag (roll number of a student in a class)
+Class--> Class of an tag says that the element/tag belongs to the class (class of stduents). We can assign
+same class to multiple elements and multiple classes to same elements as well (seperated by space)
+
+Emmet abbreviations:
+--> tag#name + enter -> Generates the tag with id as 'name'
+--> tag.name + enter --> Generate the tag with class name as 'name'
+
+3 ways to add CSS in an HTML document-->
+--> Internal Stylesheet/Style tag in html document (In head tag)
+--> Inline CSS/stylesheet: style attribute of tags
+--> External CSS: A .CSS file linked to our HTML document.
+
+Priority order --> Inline CSS > Style tag > External CSS : This means that if you have styled (set the
+background color) an HTML element using all 3 methods, the inline method will be given top priority, and
+if inline is not there, then styling through style tag/internal style sheet will be given priority and if 
+nothing is there, then default styling by browser will hold true.
+
+[Important] CSS syntax-->
+
+CSS selector{                        --> CSS selector is used to target elements
+    property1:value1;                  --> This is declaration or command (property:value)
+    property2:value2;                --> ';' : Semicolon is used to terminate the command
+}
+
+CSS selectors-->
+
+1--> Element/tag selector: Selects all the elements with the same tag
+h1{                                         --> Selects all h1 and gives them bg color as red
+    background-color: red;
+}
+
+2--> Class selector: Selects all the elements with the same class. '.' is used to target class.
+.class_name{                                --> Selects all the elements with class as 'class_name'
+    background-color: red;
+}
+
+3--> Id selector: Selects all the elements with same id. '#' is used to target ids.
+#id_name{
+    background-color: red;
+}
+
+Multiple element selection can be done using ',' (comma)
+h1, h2, p{
+    background-color: red;
+}
+
+Selecting elements with specific class name.
+tag_name.class_name{
+    declaration;
+}
+Example --> If there are 100 paragraphs, in which 10 have same classname.
+p.class_name{
+    background-color: red;
+}
+
+We can target all the html elements using the * selector as
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+[Important] "To apply CSS, we mostly use class selectors"
+
+COLOR format specifiers-->
+While applying colors to different HTML elements we can use the following:
+--> Color name, background-color: red
+--> RGBA/RGB format, where A is alpha (amount of light in the color. 0-->Light, 1-->Dark)
+background-color: rgb(255,67,8)
+--> Hex code, (#ff2345--> 'ff', '23', '45' represents the red,green and blue content in hexadecimal form)
+background-color: #ff2345
+--> HSLA/HSL format, hue-saturation-lightness,alpha: background-color: hsl(8, 90%, 63%) 
+
+Mostly used formats are --> color name, RGB and Hex codes.
+
+PROPERTIES RELATED TO BACKGROUND IMAGE -->
+1--> SETTING A BACKGROUND IMAGE: To set a background image, use the property,
+background-image: url(path to the image);
+Note that, url() is a CSS function.
+
+Also, once we set a background image to a container, the image is repeated/replicated in both X and Y directions. To modify that, we:repeat --> Image is repeated in both directions (default)
+background-repeat:no-repeat --> Image is not repeated in any direction.
+
+Now next, we can change the size of our image using another property as,
+
+3--> CHANGING THE IMAGE SIZE: To change the image size, use
+background-size: auto; --> This does not change the size of the image
+background-size: cover; --> This fills the whole container without changing the aspect ratio. Scales the image symmetrically till it f use another property as,
+
+2--> MODIFYING THE IMAGE REPETITION: To toggle the image repetition, use
+background-repeat:repeat-x --> Image is repeated in X direction only.
+background-repeat:repeat-y --> Image is repeated in Y direction only.
+background-repeatills the container.
+background-size: contain; --> This option scales the image symetrically (without changing the aspect ratio) such that it fits the container (Image is completely visible + Empty space may/may not be left).
+background-size: custom_width; --> This option changes the width only, height adjusts automatically, maintaining the aspect ratio.
+background-size: custom_width custom_height; --> This option changes both height and width of image, may destroy the aspect ratio.
+
+Next, you can change the position of the image using another property as,
+
+4--> CHANGING IMAGE POSITION: To change image position, use
+background-position: top/bottom/left/right/center/top right/bottom left; --> Takes the image at the said value of the position.
+background-position: 10px 10px --> Moves the top right corner of the image by 10px in width and height.
+
+Next, you can also the control the behavior of background image, when element or viewport (visible webpage) is scrolled.
+
+5--> BACKGROUND IMAGE BEHAVIOR ON SCROLL: To control the behavior of background image, when element or viewport is scrolled, use,
+[IMPORTANT] background-attachment:fixed; --> Image is fixed, doesn't scrolls with the content in the container.
+background-attachment:scroll; --> If you want both content and image to scroll, when someone scrolls the container, then scroll is the way to go.
+
+To write all the background properties in shorthand, use,
+background: red url('path') no-repeat fixed right top [color, image, repeat, attachment, position]
+
+BOX MODEL -->
+--> CSS considers all HTML elements in the form of a box. The box model for an HTML element looks like,
+
+  +---------------------------------------+
+  |                 Margin                |
+  |                                       |
+  |  +---------------------------------+  |
+  |  |             Border              |  |
+  |  |                                 |  |
+  |  |  +---------------------------+  |  |
+  |  |  |         Padding           |  |  |
+  |  |  |                           |  |  |
+  |  |  |   +-------------------+   |  |  |
+  |  |  |   |      Content      |   |  |  |
+  |  |  |   |                   |   |  |  |
+  |  |  |   +-------------------+   |  |  |
+  |  |  |                           |  |  |
+  |  |  +---------------------------+  |  |
+  |  |                                 |  |
+  |  +---------------------------------+  |
+  |                                       |
+  +---------------------------------------+
+
+--> Innermost is CONTENT -> then we have PADDING -> then we have BORDER -> then we have MARGIN.
+--> Total height of an element --> Height of content + top/bottom padding + top/bottom border + top/bottom margin.
+--> Methods to set margin, padding and border : 
+margin: 1px 2px 3px 4px [top right bottom left] [Clockwise direction]
+margin: 1px 2px [1px--> top and bottom, 2px--> left and right]
+margin: 1px 2px 3px [1px--> top, 2px-->left and right, 3px--> bottom]
+
+Same for padding
+
+For border, the below is shorthand, we can individually set, width, style and color.
+border: 2px (border-width) solid (border-style) black (border-color)
+border-radius: 2px [for rounded border]
+
+Margin Collapse --> 
+If margins of 2 html elements collapse, the equivalent margin/spacing between them is equal to the greater margin among the both.
+
+box-sizing:
+There are 2 possible values to this property-->
+--> box-sizing: content-box; [Default] --> In this case, the width and height of an html element specified in CSS, will be equal to the content box (as per the box  model). Padding and border will be excluded.
+--> box-sizing: border-box; --> In this case, the width and height of an html element specified in CSS, will be equal to the border box (as per the box model). Padding and border will be included.
+
+CHAPTER 4--> [FONTS AND DISPLAY]
+
+DISPLAY PROPERTIES --> 
+The display property --> This property decides whether an HTML element is an inline element (takes space which is necessary) or block element (takes the complete width. It doesn't allow elements to be parallely placed). Some elements are by default block/inline, which can be changed by changing their display property.
+
+display: inline; --> This makes the element as an inline element. Properties like width/height/margin/padding won't be respected (only left-right margin will be respected) if you set the display as inline. It doesn't creates a line break before it or after it.
+
+display: block; --> This takes the complete width on the viewport (doesn't matter if you set the width). Also, it creates a newline on top and bottom of it.
+
+display: inline-block; --> Similar to inline element, but respect width/height/margin/padding and allows elements to occupy space paralley.
+
+display: none; --> Element is removed from the DOM.
+
+visibility: hidden; --> Element is hidden by it's space is reserved on the DOM.
+
+text-align: center/left/right; --> Aligns the text in an container.
+
+text-decoration: underline/overline --> Used to decorate text (dotted underline, overline etc.)
+
+text-transform: capitalize/uppercase/lowercase --> Used to change the text property.
+
+line-height: 0.5px; --> Specifying the height between the lines.
+
+FONTS -->
+
+font-family: courier, monospace, 'courier new'; --> This can take multiple fonts as if browser cannot render the courier font, then it tries to render the next font, which is monospace. 'courier new' is in '' because it has a space in it's name. If none of the fonts can be rendered by the system, the browser renders the font from it's default stylesheet.
+
+other font properties, font-style, font-size, font-variant, font-weight etc.
+
+[Important]font-family: generic/specific; --> We can write generic font families such as serif (contains others child fonts like Times new roman, comic sana MS and the font displayed will the child font selected inside the browser within the family) or specific font families such as comic sans MS
+
+[very important point in the chapter 4 practice set] Even if you set the width for both container1 and container2 as 50%, you won't be able to get them side by side, as there is another element taking some space, which is the empty space between them while writing the HTML as,
+
+<div class="container1">
+
+</div>
+(--EMPTY SPACE--)
+<div class="container2">
+
+</div>
+
+In order to get both the containers side by side, remove the space and write the HTML in such as way so that there is no space between both the containers
+
+<div class="container1">
+
+</div><div class="container2">
+
+</div>
+
+UNITS -->
+
+To make responsive websites we have to use units other than pixels as well, like relative units to the screen width and height. The problem with pixels is that if a component is 200px on laptop, it will be same on the phone screen as well, which will lead to a bad user experience.
+
+--> em --> relative to parent's size.
+--> rem --> relative to root (html tag) size.
+--> vw/vh --> percentage of viewport width and viewport height.
+Example: width/height: 50 vw; means give the element a width/height of 50 percent of viewport width.
+--> % --> unit relative to parent element.
+
+--> min-height: 20vh; The height property of the html element cannot go below 20vh.
+--> max-height: 50vh; The height of the html container can't go above 50vh.
+--> min-width: 20vh; The width property of the html element cannot go below 20vh.
+--> max-width: 50vh; The width of the html container can't go above 50vh.
+The above are used to operate the height and width property in a range (lower val and upper val)
+
+[important] margin:auto; property is used to center a block level element (with some width) horizontally. To make the block element center vertically we use other CSS techniques like flexbox, grid.
+
+POSITION [To move HTML elements on the DOM] --> THIS IS AN EXTREMELY IMPORTANT PROPERTY.
+--> All the HTML elements of a webpage are rendered on the DOM in an order in which they are written in the HTML code.
+--> After the default rendering, the position property of all the html elements is static by default, which means they won't move, even if you use top/bottom/left/right/z-index properties.
+--> To move then from their original place, change the position property (other than static).
+--> [Note: Important] Changing the position property of an HTML element won't effect the rendering of other elements on the DOM.
+1. position: static; --> ELement wont move. [Default property]
+2. position: relative; --> Element can move now with the help of top/bottom/left/right/z-index properties. They will mocve with respect to their original rendered position in DOM. If top/bottom/left/right/z-index are specified, the element will move, else it will be rendered on the DOM as per the HTML source code.
+
+3. position: absolute; --> Here is a series of things that will happen when en element is positioned as absolute-->
+(.) First the element is removed from the normal DOM rendering/flow, which means that the document will be rendered as if the element doesn't exists. All the other HTML elements won't affect it's position and the element won't affect the position of the others.
+(.) Next, the element will be/ can be positioned with respect to it's first relative non-static ancestor/parent and if there is no non static ancestor/parent, then it will be positioned relative to the document (html tag).
+(.) In our case, 'chat with us' div has it's first parent as container div, but it is static, so the next parent is body (also static), next parent is html (also static), so it will be positioned according to the document/html tag. (try to keep top=0 and left = 0, the element will go in the top left corner of the document.)
+
+4. position: fixed; --> Same as absolute, but element is positioned relative to the browser window. It's position won't change with scrolling of page.
+
+5. position: sticky; --> The element first behaves like relative, which means that it can be positioned using top/bottom/left/right/z-index properties. Once positioned, and if webpage is scrolled, it behaves like fixed. The element sticks at its position.
+
+6. z-index --> The element with higher z-index will appear on the top/over on z axis. It defines the stack order of elements.
+
+LIST properties: 
+Shorthand property-->
+--> list-style: list-style-type list-style-position list-style-image;
+example: list-style: sqaure inside url('list_icon.png')
+list-style-position: inside; means that list element markings (square, circles) will be a part of the list tag.
+
+FLEXBOX --> 
+
+--> To align, organize content/elements better in a container, flexbox was introduced.
+--> The axis passing passing through the center of flexbox is called main-axis (Parallel to the direction in which items are rendered) and cross-axis (Perpendicular to the direction in which items are rendered.)
+
+PROPERTIES APPLIED ON FLEX CONTAINERS [FLEXBOX] -->
+(.) display: flex; --> Used the convert the container into a flexbox
+(.) flex-direction: row/column/row-reverse/column-reverse; --> Used to specify the direction in which items/content of a flexbox are rendered.
+(.) flex-wrap: wrap/no-wrap/wrap-reverse; --> Used to wrap items in a flexbox when width of the container changes.
+(.) justify-content: center/flex-start/--; --> Helps to align the items inside a container along the main-axis (direction in which elements are rendered: flex-direction)
+(.) align-items: center/flex-end/--; --> Helps to align the items inside a container along the cross-axis (direction perpendicular to main-axis/flex-direction)
+(.) align-content: center/--; --> This property controls how flex items are aligned/spaced on the cross-axis when there is limited space (items are wrapped [flex-wrap is on] or due to some specific settings)
+
+PROPERTIES APPLIED ON FLEX ITEMS [ITES OF A FLEXBOX] --> 
+(.) order: -1/2/3/--any number --> Decides the order in which flex items will appear. The default value of order for a flex item is 0. More the order, the item shift towards right.
+(.) align-self: center/flex-end/--; --> Overrides the default alignment which is given in the container and the item aligns itself according to the new position. Doesn't works if align-content in active in the container property.
+(.) flex-grow: 2/3; flex item grows (in flex-direction) with respect to other flex items.
+(.) flex-shrink: 2/3; flex item shrinks (in flex-direction) with respect to other flex items.
+
+We can add a pseudo classe to html elements as well (which are not the part of DOM) to handle the interaction of an html element with the user. For example, if we want to change the background color of an html element, when user hovers over it, we can write the 'hover' psuedo class in CSS, by using colon (:) after the selector (class, id etc.) of html element as,
+<div class = 'box'>Hello world</div>
+In CSS, we can write,
+.box{
+    background-color: black;
+    color: white;
+}
+.box:hover{
+    background-color: lightblue;
+}
+
+GRID ARRANGEMENT: 
+(.) If we want to arrange the html elements in the form of grid (rows and columns) we can use the grid property of a container.
+[PROPERTIES OF GRID CONTAINER]-->
+(.) display: grid; --> Converts an html element/container into a grid container/arrangement.
+[EXTREMELY IMPORTANT] If you want your elements to be a grid as well as they should be inline elements, you can write the display as 'inline-grid'
+(.) By default the layout has 1 column.
+(.) grid-column-template = col1_width col2_width.... ; --> This property helps us to adjust the number of cols and their widths. For example, grid-column-template = 30px 100px auto; will arrange the elements in a grid of 3 cols with a width of 30px, 100px and auto (remaining width of viewport) respectively.
+(.) grid-row-template= row1_width row2_width...; --> Adjusts the height of each row.
+(.) grid-column-gap= 20px; --> Makes columns 20px apart.
+(.) grid-row-gap= 20px; --> Makes rows 20px apart.
+(.) grid-gap= 20px 20px / grid-gap= 20px; --> Shorthand for grid-column-gap and grid-row-gap property.
+(.) justify-content= center; --> Aligns the grid items in the center horizontally. The layout can be changed.
+(.) align-items= center; --> Aligns the grid items in the center vertically. The layout can be changed.
+
+[PROPERTIES OF GRID ELEMENT]-->
+(.) grid-column= starting_line/ending_line or starting_line / span (number of elements); --> This property is used to change column span of a grid element. For example,
+--> grid-column = 1/3; This will start the element from line 1 of the grid arrangement and increase its span till line 3. (the element will span over 2 elements)
+--> grid-column = 1/ span 3; This will start the element from line 1 of the grid arrangement and increase it's span over 3 elements.
+(.) grid-row= grid-column= starting_line/ending_line or starting_line / span (number of elements); --> This property is used to change row span of a grid element
+
+col line 1                 col line 2             col line 3            col line 4
+------------------------------------------------------------------------- row line 1
+|  element                |  element             |  element             |
+------------------------------------------------------------------------- row line 2
+|  element                |  element             |  element             |
+------------------------------------------------------------------------- row line 3
+|  element                |  element             |  element             |
+------------------------------------------------------------------------- row line 4
+|  element                |  element             |  element             |
+------------------------------------------------------------------------- row line 5
+|  element                |  element             |  element             |
+------------------------------------------------------------------------- row line 6
+
+
+MEDIA QUERIES: 
+(.) This feature allows us to write/change the CSS of an html element when a specific condition is met, like if the screen size, orientation etc. are changed.
+(.) This is primarily used to make websites responsive.
+(.) syntax-->
+@media media-type and (media-features){
+    alternate CSS of elements;
+}
+(.) @media marks the beginning of a media query
+(.) media-type can be 'screen' etc
+(.) media-feature can be the parameter on which the condition has to be applied like width
+(.) For example, 
+@media screen and (max-width: 600px){
+    .container{
+        background-color: yellow;
+    }
+}
+The above query will change the background color of html element with .container class when the width of screen goes below 600px.
+
+TRANSFORM PROPERTY IN CSS:
+If you want to translate, rotate, skew, scale and html element, you can use the transform property. It can be used as,
+[2D translations]-->
+-------------------------------------------------------------------------
+(.) transform: translate(20px, 30px);--> This property translates/moves the html tag by 20px in X direction and 30px in the Y direction.
+(.) transform: rotate(45deg);--> This property rotates the html element by 45 degrees. Also, by default, all the transformations are applied wrt to the center of the html element. To change it, you can use the transform-origin property.
+(.) transform-origin:top left;--> It defines the pivot point of an html element. All transformations are applied wrt to this point. By default, it's the center of an html element. You can change it by writing 'center', 'top left', 'top right' etc.
+(.) transform: scale(2, 3);--> This property scales(multiplies) the width and height of the html element by 2 times and 3 times respectively.
+(.) transform: skew(20deg, 30deg);--> This property skew the geometry by 20deg in horizontal direction and 30 deg in vertical direction.
+--> [Skewing can be visualized like holding any 2 opposite edges a square/rectangle (either top+bottom--> Horizontal skewing or left-right--> Vertical skewing) and then moving the hands in opposite direction [Either left-right/right-left--> Horizontal skewing or uo-down/down-up--> Vertical skewing]. This will distort the shape and make it kind of a parallelogram.]
+-------------------------------------------------------------------------
+[3D translations]-->
+(.) transform: rotateX(45deg); --> Rotates the html element in X direction by 45 degrees.
+(.) transform: rotatey(45deg); --> Rotates the html element in Y direction by 45 degrees.
+(.) transform: rotateZ(45deg); --> Rotates the html element in Z direction by 45 degrees.
+-------------------------------------------------------------------------
+[IMPORTANT] Note that, if you want to apply multiple transformations, write it as -->
+transform: translate(10px, 10px) rotate(45deg)
+If you write it one by one like transform: translate(10px, 10px) and transform: rotate(45deg), the latest transform will be applied.
+-------------------------------------------------------------------------
+
+TRANSITION PROPERTY IN CSS-->
+(.) The transition property applies a animation/transition on any CSS property of the html element. For example,
+(.) transition: width 2s ease-in 1s; --> This means that whenver the 'width' of the html element will change, it will change to it's given value in '2 seconds' with an 'ease-in' effect. Also, this change will start after a delay of '1 second'. This is short hand for transition property. The properties are,
+'transition-property', 'transition-duration', 'transition-timing-function' and 'transition-delay'.
+(.) You can apply transition to multiple properties as, 
+transition: width 2s ease-in, height 1s ease-in-out
+
+ANIMATIONS IN CSS: 
+(.) Animations in CSS are good way to handle complex+multiple animations (simpler ones can be handled by transition property). The good thing about animations is that you can define multiple animations in advance and then use the ones you need using the 'keyframes' command.
+(.) The syntax is -->
+@keyframes animation_name{
+    from{
+        
+    }
+    to{
+
+    }
+}
+(.) shorthand for animation-->
+animation: 'animation_name' 'animation_duration' 'animation_timing_function' 'animation_delay' 'animation_iteration_count' 'animation_direction'
+(.) Animation can also be applied in percentages as, if 20% anime is completed, what sohuld be the state of the html element as-->
+@keyframes anime_name{
+    0%{
+        state1
+    }
+    20%{
+        state2
+    }
+    60%{
+        state3
+    }
+    100%{
+        state4
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

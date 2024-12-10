@@ -1,0 +1,71 @@
+{% extends "default.html" %}
+{% block body %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('static/assets/img/contact-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>Update Blog</h1>
+                    <span class="subheading">Change your blogs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Add/Edit Blogs</p>
+                <div class="my-5">
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/change/{{post_id}}" method="post">
+                        <div class="form-floating">
+                            <input class="form-control" id="heading" type="text" placeholder="Enter the heading"
+                                name="heading" />
+                            <label for="heading">Blog heading</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="subheading" type="text" placeholder="Enter the subheading"
+                                name="subheading" />
+                            <label for="email">Blog Subheading</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="author" type="text" placeholder="Enter the author"
+                                name="author" />
+                            <label for="author">Blog Author</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="slug" type="text" placeholder="Enter the Slug"
+                                name="slug" />
+                            <label for="slug">Blog Slug</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="image_path" type="text" placeholder="Enter the Image path"
+                                name="image_path" />
+                            <label for="image_path">Blog Image path</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="content" name="content"
+                                placeholder="Enter the blog content here.." style="height: 12rem"></textarea>
+                            <label for="content">Content</label>
+                        </div>
+                        <br />
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

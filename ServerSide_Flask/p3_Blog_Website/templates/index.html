@@ -1,0 +1,55 @@
+{% extends "default.html" %}
+{% block body %}
+
+
+<!-- Page Header-->
+<!-- url('{{url_for('static', filename='assets/img/home-bg.jpg')}}') -->
+<header class="masthead" style="background-image: url('static/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>{{params['blog_name']}}</h1>
+                    <span class="subheading">{{params['tag_line']}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+            <!-- for loop in jinja templating -->
+            {% for blog in blogs %}
+
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a href="/blog/{{blog.slug}}">
+                    <h2 class="post-title">{{blog.heading}}</h2>
+                    <h3 class="post-subtitle">{{blog.subheading}}</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">{{blog.author}}</a>
+                    on {{blog.date}}
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+
+            {% endfor %}
+
+            <!-- Pager-->
+            <div class="btns" style="display: flex; justify-content: space-between;">
+                <a href="{{prev_url}}"><button class="btn btn-primary"> &larr; Previous</button></a>
+                <a href="{{next_url}}"><button class="btn btn-primary">Next &rarr;</button></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,1 @@
+select * from employees cross join cities;

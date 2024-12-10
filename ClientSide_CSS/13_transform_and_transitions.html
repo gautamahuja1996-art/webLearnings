@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 50vw;
+            height: 50vh;
+            background-color: lightgoldenrodyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .myimg{
+            /* moving the image by 20px in X and Y */
+            /* transform: translate(200px, 200px); */
+            /* transform-origin: top left; */
+            /* transform: rotate(45deg); */
+            /* transform: scale(0.5, 0.5); */
+            /* transform: skew(20deg, 30deg); */
+            /* transform: rotateX(45deg); */
+            /* transform: rotateY(45deg); */
+            /* transform: rotateZ(45deg); */
+            transition: width 2s ease-in-out 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="virat.webp" alt="MyImage" class="myimg">
+    </div>
+</body>
+</html>

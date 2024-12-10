@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+
+    <!-- internal CSS -->
+    <style>
+        /* element selector */
+        h1{
+            background-color: red;
+        }
+
+        /* class selector */
+        .paragraph{
+            background-color: aqua;
+        }
+
+        /* selecting 2 types of elements */
+        h1, h3{
+            color: white;
+        }
+
+        /* selecting all the elements and giving them a margin and padding of 0px */
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <section>
+            <!-- first container -->
+            <!-- this container is a part of 2 classes: paragraph and red -->
+            <div id="first" class="paragraph red">
+                <h1>First Heading</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur in, iusto perferendis quis at quibusdam dicta molestiae quam autem quod dignissimos unde, numquam animi tempore recusandae? Deserunt quos qui nam.</p>
+            </div>
+
+            <!-- second container -->
+            <div id="second" class="paragraph">
+                <h1>Second Heading</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, ipsum.</p>
+            </div>
+
+            <!-- third container -->
+            <div id="third" class="paragraph">
+                <h1>Third Heading</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <!-- fourth container -->
+            <div id="fourth" class="paragraph">
+                <h3>Good BYE!</h3>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,214 @@
+Whenever you request a website/webpage from a webserver, it returns the html,css and js of that page,
+which is then loaded by our web browser.
+
+If you want to see the source code of the page, right click and view source.
+
+If you delete/do changes in the html, css, js of the loaded page, it reflects the changes on that specific
+browser, it doesn't do any changes on the webserver, so whenever u reload, the page becomes as it is.
+
+html --> Barebone/skeleton/layout of the page.
+css --> styling of the page.
+js --> frontend Logic/client side logic --> Logic/event handling on the page.
+
+frontend logic/js code is visible to the user, but backend logic/server side logic is hidden (written
+in php, node js, flask etc.)
+
+.html / .htm --> extension of html files
+
+coding can be done through notepad as well, but there is no support while coding (auto suggestion, live
+server, etc.)
+
+! (Emmet abbreviation) + enter --> gives the template/boilerplate for html. Emmet is a plugin in our
+VSCode which helps web developers to write code effectively.
+
+[Important] index.html --> index.html file name is a special file name which tells the server that this 
+is the first file/page to be served when someone requests the website or root directory of the website, 
+which means writiing 'www.google.com' and writing 'www.google.com/index.html' will get you the same result.
+TRY ACTIVITY --> Create an index.html page in Vscode and run it using live server. You will see the url as
+'120.0.0:5000/index.html'. If you remove the index.html from the url and hit enter, you will see that the
+server still server index.html by default. Now without closing the server, change the file name to 
+something.html and refresh the server. Now your server won't serve anything as even the default page,
+which is index.html is missing.
+
+generating dummy text -->
+write p + enter --> Creates a paragraph text.
+Inside the p tag, write lorem300 + enter --> Generates a dummy text of 300 words.
+
+Note that, the code of webpage comes from the server. The apprence of it is becuase our browser render it.
+
+What do we mean by html element --> 
+html element --> start tag + content + closing tag
+example: html element(heading) --> <h1> (start tag) + 'This is heading' (content) + </h1> (closing tag)
+
+After cloning the website, it doesn't always loads properly (as your clone won't be able to find the
+relative page linked that original website had). To see the error, go to inspect --> console.
+
+Attibutes/Properties of a tag --> "Additional information given to a tag."
+
+Priority/Importance of heading tags --> h1 > h2 > h3 > h4 > h5 > h6 --> "Don't use heading tags just
+to change the size/thickness of a text" as it reduces the importance of that tag from the context of 
+SEO and search engines. Search Engines look at H1 as most important heading, rather than h6 to rank 
+the page.
+
+Anchor tag --> 
+To take the user to a different page of your website [relative link -> relative to that page], or,
+To take the user on a different website all together [absolute link --> Link not relative to the current page].
+
+Image tag -->
+To add image. 2 important attributes -->
+src : Takes the link of the image (link of an online image or path of the image in your system/server)
+alt : If due to some reason the link/path breaks, this text is displayed.
+To preserve the aspect ratio of an image, change only one attribute (either width or height)
+
+Bold/italic/underline tag --> To make text bold, italic underline.
+<b>Sample text</b>
+<i>Sample text</i>
+<u>Sample text</u>
+
+br tag --> Break tag / new line tag --> By default, html ignore new lines and spaces, to give a new line 
+we have to use the break tag.
+sample text<br>
+
+big and small tag --> Makes the text a little bigger and smaller
+<big>sample text</big>
+<small>sample text</small>
+
+horizontal divider tag --> <hr>
+
+subscript tag --> <p>CO<sub>2</sub></p>
+superscript tag --> <p>x<sup>2</sup></p>
+
+preserve tag --> <pre>Preserves the content as it is, even new lines and extra spaces</pre>
+
+To display different symbols in html, you can you codes, like to display right arrow, we can write
+'&rarr;'
+
+CREATING A PAGE LAYOUT --> 
+
+Always use right tag for the job. Don't try to use, h1 where p is required, etc.
+
+A web-page can be broken down into 3 parts --> 
+--> header, main, footer. 
+--> These 3 should be incorporated into the body tag of the page. 
+--> Although you can make your webpage without these tags as well, but when a search engine or a bot looks 
+at the sources code, it helps them to understand what is what.
+--> The header of a page or the header tag has a 'navigation' tag
+--> The main tag or the main content of a page has 'section' [A section of a page], 'article', 
+'aside' [content aside from the page content like ads] tag in it.
+--> Section, article, aside as also known as semantic tags.
+
+Using above tags is not necessary to put the content, but it improves readability, and is SEO friendly.
+
+div tag --> Used as a container for other tags. This is a block element which means it takes all the spaces
+width wise.
+span tag --> Also used as a container, but inline element (takes the space which is required by the 
+element, which means doesn't occupy complete space width wise.)
+
+LISTS, TABLES, FORMS --> 
+
+To display items in a list, you can either use,
+--> ol --> Ordered list --> Where order of items in a list makes sense. Also, they are marked as,
+1. First item
+2. Second item
+
+--> ul --> Unordered list --> Where order of items in a list doesn't matter. Also, they are marked as,
+- any item
+- any item
+
+--> Items in both the lists are added using the <li> tag
+
+Table tag -->
+This tag is used to organize data in tabular form. It starts with,
+<table> --> This tag marks the starting of table tag
+<caption> --> This tag writes the caption for a table [Can be contain in the thead tag]
+<thead> --> This tag holds the row with column names (tr with th) [Can also contain the caption tag]
+<tbody> --> This tag holds the row with table data (tr with td)
+<tr> --> Marks the starting of a table row
+<th> --> specifies a column name
+<td> --> Table data in a cell
+<colspan> --> Attribute specifying the coverage/span of a column
+
+Form tag -->
+This tag is used to create form in html, or to get input from the user.
+Within a form, there are multiple ways with which you can take input from the user, using checkboxes,
+radiobutton, etc. One such tag is 'input' tag which is used to take input from the user.
+
+The label element is used to associate a text with other elements (generally input elements).
+2 scenarios -->
+
+S1 --> Label without for attribute --> In this case label is not connected with the input element, which
+means if you click on the label, nothing will happen to the input field.
+-- Sample code:
+<label>Username</label>
+<input type='text'>
+
+S2 --> Label with for attribute --> In this case, if you write the id of the input field into the for
+attribute of the label, then they are connected, which means if you click on the label, you will be able
+to toggle/change/do something the input field
+-- Sample code:
+<label for='uname'>Username</label>
+<input type='text' id='uname'>
+
+Some important attributes in input tags:
+
+-->name: This is an important attribute. The name-value pair of an input element goes together to the server
+side script so that we can understand from which input element, we have the value (in case of multiple 
+elements)
+-->placeholder: Generally to specify what is the input field for.
+-->value: Initial value of the input field. Cant be fetched in the JS code.
+-->id: Unique identifier to an element. Not a good practice to give same id to multiple elements.
+-->class: Identifier for a group of elements. An element can have multiple class names seperated by space.
+
+--> You can understand the class and id attributes as --> Class is same for a lot of students, 
+eg -> These are the students of class 10th-E, but roll number is unique to each student.
+
+Radio buttons -->
+If one is checked, others will be unchecked (only opne option can be selected at a time)
+Keep the name attribute same for all the radio buttons, as it helps to fetch the value (or selected radio
+button) in the backend.
+
+VIDEO EMBEDDING AND IFRAME
+
+iframe tag is used to run/frame another website/page from your webpage. Some websites like youtube allow
+iframing, while some like google dont allow.
+
+To get a offline video embedded into your system use the <video> tag
+attributes-->
+src: url of the video.
+control: get the controls on the player.
+autoplay: starts the video automatically.
+loop: runs the video in a loop.
+width: to change the width.
+
+SEO-> Search engine optimization
+
+2 types of SEO -->
+--> On page: Can be improved by HTML developers
+--> Off page: Can be improved by digital marketing experts.
+
+We will deal with on page seo and what is it dependent on?
+--> Set the title nice and to the point
+--> Add a meta tag for description
+--> Use a nice URL slug: slug is name of page in the directory as,
+https://www.gautam.com/content/what-is-python --> here what is python is slug and descriptive that this
+URL redirects to a page that explains python well.
+https://www.gautam.com/content/whatasdfghdfapytoh --> This is a bad slug as its not descriptive what the 
+URL holds.
+--> Add the keywords as meta-data of the page.
+--> Write the author of the page, in the meta-data
+--> Set a favicon (icon) for the webpage.
+--> Compress images: Helps to load the page faster (ranks better on search engines)
+--> Compress the code and resources : Use tools to remove newline from the codes (reduces file size) which
+helps to load the page faster. New line, comments are added to improve user readability, but machine 
+can parse through the file easily.
+--> Add alt text to images.
+
+
+
+
+
+
+
+
+
+

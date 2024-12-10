@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+</head>
+
+<body>
+
+    <!-- Consists of 3 parts: header,main,footer -->
+    <!-- Header part: Contains navigation and other things -->
+    <header>
+
+    </header>
+
+    <!-- Main part: Main content: Contains section, article and aside tags -->
+    <main>
+
+        <!-- The below section of the webpage consists a form -->
+        <section>
+
+            <h1>Form: Travel with Vistara</h1>
+
+            <!-- creating a container for the form tag -->
+            <div>
+
+                <!-- form tag -->
+
+                <!-- action attribute holds the url to server side script that will handle the form data 
+                when user submit it. -->
+                <form action="action.php">
+
+                    <!-- taking name input. Lets create a container for it. -->
+                    <div>
+                        <!-- label tag is used associate text with the element (input element) and make a 
+                        connection with it (depending if you have used the for attribute or not) -->
+                        <label for="name">Enter your Name:</label>
+                        <input type="text" name="inputbox" id="name" placeholder="Your Name goes here">
+                    </div>
+
+                    <!-- for extra spacing add br (div: block element, breaks line automatically) -->
+                    <br>
+
+                    <!-- Radiobutton to ask the user for their seat preference -->
+                    <div>
+                        <!-- for attribute not required for this -->
+                        <label>Please select your Cabin Class:</label><br>
+
+                        <!-- label-radiobutton pairs -->
+                        <!-- using id, we can target specific radiobuttons -->
+                        <!-- using class, we can target all radiobuttons at once -->
+                        <!-- using name, we can get the selected value on server side as, radiobutton.selected_value=? -->
+                        
+                        <label for="rb1">
+                            <input type="radio" name="radiobutton" id="rb1" value="economy" class="rbclass">Economy
+                        </label>
+
+                        <label for="rb2">
+                            <input type="radio" name="radiobutton" id="rb2" value="first_class" class="rbclass">First Class
+                        </label>
+
+                        <label for="rb3">
+                            <input type="radio" name="radiobutton" id="rb3" value="premium_economy" class="rbclass">Premium Economy
+                        </label>
+
+                        <label for="rb4">
+                            <input type="radio" name="radiobutton" id="rb4" value="business" class="rbclass">Business
+                        </label>
+                    </div>
+
+                    <!-- extra spacing -->
+                    <br>
+
+                    <!-- preference of movies using checkboxes-> multiple selection possible -->
+                    <div>
+                        <label>Please select your prefered Music:</label>
+
+                        <!-- label-checkbox pair -->
+                        <label for="cb1">
+                            <input type="checkbox" name="check" id="cb1">English
+                        </label>
+
+                        <label for="cb2">
+                            <input type="checkbox" name="check" id="cb2">Hindi
+                        </label>
+
+                        <label for="cb3">
+                            <input type="checkbox" name="check" id="cb3">French
+                        </label>
+                    </div>
+
+                    <!-- extra spacing -->
+                    <br>
+
+                    <!-- textarea for comments/queries -->
+                    <div>
+                        <label for="tbox">Write to us</label>
+                        <textarea name="textarea" id="tbox" cols="30" rows="10" placeholder="Queries/Comments"></textarea>
+                    </div>
+
+                    <!-- extra spacing -->
+                    <br>
+
+                    <!-- dropdown menu/select tag for selecting destination -->
+                    <div>
+                        <label for="dropdown">Destination: </label>
+                        <select name="selectbox" id="dropdown">
+                            <option value="default">Select Country</option>
+                            <option value="india">India</option>
+                            <option value="france">France</option>
+                            <option value="us">USA</option>
+                            <option value="uk">London</option>
+                            <option value="pakistan">Pakistan</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer tag: Contains some data related to the webpage like copyright info, nav pages etc -->
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

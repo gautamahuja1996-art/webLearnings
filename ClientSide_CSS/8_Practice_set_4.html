@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice set chapter 4</title>
+
+    <!-- Adding baloo bhai 2 google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .navigation{
+            background-color: black;
+            height: 70px;
+        }
+        .container1{
+            background-color: green;
+            height: 80vh;
+
+            /* We want both containers to be side by side and change their width as well, i.e why we set the display property to inline-block */
+            display: inline-block;
+            width: 50%;
+        }
+        .container2{
+            background-color: red;
+            height: 80vh;
+            display: inline-block;
+            width: 50%;
+        }
+        .footer{
+            background-color: rgb(232, 33, 66);
+            height: 50px;
+            font-family: 'Baloo Bhai 2', cursive;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* target all the text written in .navigation class --> ul element --> li element --> a element */
+        .navigation ul li a{
+            color: white;
+
+            /* No underline */
+            text-decoration: none;
+        }
+
+        .navigation ul li{
+            /* list in block element */
+            display: inline-block;
+
+            /* Display is inline block so that we can change width/height/margin/padding */
+            padding: 25px 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container1">
+
+        </div><div class="container2">
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            All Copyrights reserved &copy; by Gautam
+        </div>
+    </footer>
+</body>
+</html>

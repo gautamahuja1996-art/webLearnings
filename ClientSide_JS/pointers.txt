@@ -1,0 +1,303 @@
+What are the elements of a website?
+-->
+Elements of a website are:
+HTML: Used to create the skeleton/element of website. It's Mandatory for a website
+CSS: USed to beautify the elements/skeleton. It's not mandatory.
+JS: Used to interact with the elements/skeleton. It's not Mandatory, but without it you won't be able to interact with the elements on a webpage.
+TO SUM UP--> HTML IS MANDATORY AND CSS AND JS ARE EMBEDDED IN AN HTML PAGE IN THE FORM OF TAGS OR FILES.
+
+How the web 'request/response' 'flow/system' works or how the website works? 
+-->
+The process works as:
+- A client/web-browser requests a webpage (like www.google.com) from a webserver (Google webservers) by writing the website address (www.google.com) in the address bar.
+- This request reaches the webserver, which then processes it (This processing/handling of web requests is done by a server side scripting language like php, python-flask/Django) and returns the HTML, CSS and JS bundle of the webpage to the client [Can be seen in the page source].
+- The client, if a web browser, parses it (the code) and renders it beautifully to the user.
+
+Javscript is the language of web/browsers. It can be used in both client side (in browser) and server side (using Node js framework). 
+Its very different from JAVA programming language. The name 'Javascript' has JAVA in it because, Java was very popular at the time when JS was to be launched, so developers of JS used the word 'Java' in it.
+
+Client side JS/In browser JS --> Your borwser has Javascript Engine embedded in them, which means the JS runs in the browser. If you turn off the internet and still run JS in the browser, it will work.
+
+JS can be used to target html elements and click on it as well. Also it can used to make chrome extensions as well.
+
+You can write javascript in 2 ways-->
+- Using script tag: Its a good practice to use the script tag just above the ending of body tag (as till the program reaches the script tag, the page is completely rendered by the browser.)
+- linking a js file: You can link a javascript file above the closing body tag.
+
+To make a div tag with class name 'container', use the Emmet abbreviation-> div.container + Enter
+To make a button tag with id name 'click_button', use the Emmet abbreviation--> button#click_button + Enter
+
+[NOTE: IMPORTANT] --> JAVASCRIPT IS A FORGIVING LANGUAGE, WHICH MEANS IT YOU FORGOT TO PUT ; AT THE END OF A STATEMENT OR IF YOU DIDN'T START THE VARIABLE DECLARATION USING KEYWORDS 'LET'/'VAR', IT WONT GIVE YOU AN ERROR.
+
+DOM manipulations-->
+- Just writing the id name in the console + enter, returns the html element with that id as a variable.
+- document.getElementByTagNam('h1') --> Returns the array of all elements with tag h1
+- CSS can also be manipulated using JS --> document.getElementById('id_name').style.color = 'red'
+- document.getElementById('id_name').style.visibility = 'hidden' : Hides the element, but the space occupied by the element in the DOM remains.
+- document.getElementById('id_name').style.display = 'none' : Removes the element + removes the spaces that it occupies in the DOM.
+
+For debugging, logging warnings and errors we can use the console API (Application programming interface),
+- console.log('Hello', 4+6, "Another statement"): To log a message on the console.
+- console.warn('Hello'): To log a warning on the console.
+- console.error('Hello'): To log an error on the console.
+- [Avoid to use]document.write('Hello'): To write on the DOM.
+- console.clear('Hello'): To clean the console.
+- console.assert(): To asserts/evaluate an expression.
+
+VARIABLES/DATATYPES IN JS-->
+
+Types of datatypes : 'Primitive' (pre-defined) and 'Reference'.
+- use the keyword 'var' to declare a variable.
+- var num1 = 23     --> integer [Primitive]
+- var num2 = 23.45  --> Float [Primitive]
+- var str1 = 'this is lovely' --> string [Primitive]
+- var marks = {
+    ravi: 48,
+    shyam: 44               --> Object (key-value pair)  [Reference]
+}
+- var status = true --> boolean [Primitive]
+- var test or var test = undefined : Both of these declarations are same. This states that a variable is declared yet, but not defined (undefined) [Primitive]
+- var myvar = null : This variable is defined by holds a null/empty value.
+- var arr = [1,2,3, 'test element', 5] : Array, can be indexed, starting from 0 as arr[0]. [Reference]
+
+OPERATORS IN JAVASCRIPT:
+
+Arithmetic operators: +, -, *, /
+Assignment operators: =, +=, -=, *=, /=
+Comparison operators: ==, <=, >=, <, >
+logical operators: &&, ||, !  --> Logical and, or, not
+
+[IMPORTANT] IN JS, == is a loose equality operator, which means it will return true, if the value of LHS and RHS is same (irrespective of their datatypes). For example, 5 == '5' returns true in JS, whereas '===' is a strict equality operator which returns true only if both value and datatype are same, which means, the expression, 5==='5' will be false and 5===5 will be true.
+
+FUNCTIONS IN JAVASCRIPT--> Functions are created to follow DRY (Do not repeat yourselves) principle.
+
+syntax -->
+1--> Function declaration
+function function_name(parameters seperated by comma){
+    computations;
+    return statement;
+}
+2--> Function calling
+variable = function_name(parameters)
+
+NOTE--> If color of logged data in console is blue, it means it's a number and if it's black, it means it is a string.
+
+CONDITIONAL STATEMENTS IN JAVASCRIPT-->
+syntax-->
+if (condition){
+    Task;
+}
+else{
+    Task;
+}
+
+LOOPS IN JS-->
+- For loop/finite loop:
+syntax-->
+for (var i = starting point; condition: increment/decrement){
+    task;
+}
+
+- For each loop to iterate over elements in a data structure and performing a function
+syntax-->
+data_structure.forEach(function(element){
+    do anything with the element;
+})
+
+NOTE --> Variables can be declared using 3 keywords: let/const/var.
+let var_name:
+const var_name:
+var var_name:
+
+- while loop-->
+syntax-->
+let j = 0
+while (condition){
+    task;
+    icrement/decrement of variable;
+}
+
+- do while loop
+do{
+    task;
+    increment/decrement of variable;
+}while(condition)
+
+BREAK AND CONTINUE STATEMENTS IN LOOP-->
+- break: Breaks the loop
+- continue: skips the iteration and takes the control to the loop header.
+
+SOME ARRAY METHODS-->
+- array.length; --> gives the length
+- array.pop(); --> Removes the last element
+- array.push('Gautam'); --> Adds the element 'Gautam' to the array
+- array.shift(); --> Removes the first element from the array
+- array.unshift('Gautam'); --> Adds the element 'Gautam' to the first position of array and returns the length of new array, which means if you run this function and catch the returned value, it will add an element to the first position of the array and returned the new length of the array.
+
+SOME STRING METHODS -->
+- string.length; --> Returns the string length
+- string.slice(0,3); --> Slices the string from 0 to 2 (excludes 3)
+
+DATES IN JAVASCRIPT -->
+
+- let current_date = new Date() : 'new' keyword is used to create an instance of the 'Date' class.
+- Next, you can run methods of the instance, as
+- current_date.getTime(), current_date.getFullYear() etc.
+
+DOM MANIPULATION-->
+- What is DOM? 
+--> [IMPORTANT] On console, write 'document' and hit 'ENTER'. You will see you will get a document object which contains the HTML code of the page.
+--> DOM or Document object Model is the HTML structure of the page which is visible to the user.
+--> Using JS, you can manipulate/access the HTML elements, like : Click on them, change their CSS etc.
+
+DOM METHODS / PROPERTIES -->
+Properties-->
+- document.location --> Gives you IP, port and other details.
+- document.title --> Gives you title of the document
+- document.url --> Gives you url of the document
+- document.scripts --> Gives you the scripts/ JS codes in the documents (One script is given which is injected by the live server in our document, for hot reload feature, other scripts will be the one written by the user)
+- document.links --> Gives all the links.
+- document.images --> Collection/array of images.
+- document.domain --> Gives the domain name, without the port.
+
+Methods -->
+- document.getElementById('id_name') --> Fetches the HTML element with id as id_name
+- document.getElementsByClassName(class_name) --> Fetches the collection/array of elements with the same class name.
+- document.getElementsByTagName() --> Helps you target elements by tag name. Returns the HTML collection/array of elements with same tag name.
+- document.querySelector() --> Helps you target elements using CSS selectors and returns the first element that satisfies the condition. For example, document.querySelector('.container') will return the first element will class as container.
+- document.querySelectorAll() --> Helps you target elements using CSS selectors and returns the collection of elements that satisfies the condition. For example, document.querySelector(''a[href^="https://"]'') will return the first anchor tag with 'href' attribute as 'https://'
+- document.getElementById().innerHTML --> Returns the inner HTML of the element in the form of a string
+- document.getElementById().innerText --> Returns the text content (heading + paragraph) which is inside the element
+- element_1 = document.createElement('p') --> Create a new paragraph element
+- element_1.innerText = 'This is a newly created paragraph' --> Adds text to the newly created element.
+- collection[1].appendChild(element_1) --> Adds a child element 'element_1' to the collection[1] parent element.
+- collection[1].replaceChild(element_2, element_1) --> Replace the element_1 child by element_2.
+
+ATTACHING EVENT LISTENERS WITH THE HTML ELEMENTS -->
+syntax-->
+html_element.addEventListener(event_name, function event_handle_function(){
+    task;
+})
+- For a button, you can either use the above approach or simple use the onclick() property of the html element, and write a callback function in it.
+- types of events --> 'click', 'mouseup', 'mousedown' etc
+- you can pass the parameters to the callback function as well as, and handle it in JS.
+<button onclick = 'clicked('test parameter')'>
+
+ARROW FUNCTIONS -->
+- syntax
+function_name = (parameter) => {
+    task;
+}
+Why is it used? 
+- There are certain places where you can simply insert the function definition without the need of first defining it explicity as giving it a name.
+- Example --> document.setTimeout(  ()=>{console.log('This is an arrow function')},     2000)
+
+After declaring it, you can call the function normally.
+
+SETTIMEOUT AND SETINTERVAL FUNCTIONS-->
+- settimeout: This method is used to schedule a function once after a certain time.
+- setinterval: This method is used to schedule a function repeatedly after a certain time interval.
+- Note that both of these fnuctions takes a function as the first argument, which is to be called at the given time interval. [The function can be in the form of arrow function]
+- Note that, both the these methods return a 'id' [= 1] which when given as a paramter to clearTimeout() or clearInterval() function, stops the working of setTimeout() and SetInterval() function
+- syntax -->
+id = setTimeout(function_name, 5000) : function_name is scheduled after 5 seconds.
+clearTimeout(id) -> Will stop the setTimeout function
+- Same is for setInterval as well.
+
+LOCALSTORAGE IN JAVASCRIPT-->
+- localstorage is a feature provided by the web borwsers which allow us to store the data in form of key-value pairs within the browser itself.
+- Two neat features are-->
+(.) The data persists even after the browser is closed
+(.) localstorage is different for each domain, which means if user visits google.com, the browser will have a different storage than, when user visits a different webiste.
+It's methods:
+- localStorage + enter --> Gives the local storage for that domain and data stored in it.
+- localStorage.setItem(key, value) --> Stores the key-value pair.
+- localStorage.getItem(key) --> Gets the value for the key.
+- localStorage.clear() --> Clears the data.
+
+Do not store sensitive data in localStorage as it is accessible to the client side [prefer storing on server side instead]
+
+[IMPORTANT] localstorage stores everything in the string format. If you store, 1, it will stored as '1'. If you store an array ['coffee', 'tea'], it will be stored as a string 'coffee,tea', if you store an object(key-value pair/array) as {t:'test', d:'destination'} it will be stored as a string '[object object]'. Hence to preseve data, store it as string or JSON string.
+
+Output of localstorage-->
+Storage {arrayofobject: '[object Object]', data: '1', arrayofarray: '1,2,3,4', obj: '[object Object]', items: '1,2', …}
+arrayofarray
+: 
+"1,2,3,4"
+arrayofobject
+: 
+"[object Object]"
+data
+: 
+"1"
+items
+: 
+"1,2"
+obj
+: 
+"[object Object]"
+length
+: 
+5
+[[Prototype]]
+: 
+Storage 
+
+JSON (JAVASCRIPT OBJECT NOTATION)-->
+- This is a standard notation/way of exchanging data between webservers and clients.
+- [Imporant]: JSON always has double quotes in it, whereas JS objects can have both single and double quotes.
+- To send data to a server or client, we first convert it to JSON string.
+- To process data from servers, which is received in JSON, we can convert it to JS objects.
+Methods -->
+- JSON.stringify(JS object): Used to convert JS object to JSON string
+- JSON.parse(JSON string): Returns a JSON object, which can be processed effectively by JS
+
+[IMPORTANT] TO CHECK THE TYPE OF A VARIABLE WE CAN USE THE 'TYPEOF' FUNCTION AS,
+- console.log(typeof variable)
+
+TEMPLATE LITERALS -->
+This feature is added in ECAMscript-06, which has given powerful features to the JS string, where we can add placeholders to the string.
+The symbol used to do so are backticks--> `string`
+example: 
+let age = 24
+console.log(`My age is ${age} year`)
+
+Using input fields like textarea, buttons shouldn't be used inside a form tag, if you don't actually want to create a form [If we don't want to submit the input fields data to the server side script] because when you click on the button inside the form tag, it tries to submit the data to the server, and more importantly, it refreshes the page (clearing our console) [Use the input fields in a div container]
+
+To play audio in JS, we can use the Audio class.
+let audio = new Audio('path to the song');
+audio.play() --> Plays the audio.
+audio.pause() --> Pauses the audio.
+audio.paused --> returns true/false depending whether audio is paused or not.
+audio.currenttime --> returns the current seek time of audio as audio plays.
+audio.duration --> gives the complete duration of the audio/song.
+audio.src = 'path to song';
+'timeupdate' event can be applied on audio which is continuously fired as the currentime of song is changing.
+
+To get the list of all classes an html elements has, use, .classList property.
+html_element.classList --> Returns a list which has all the classes of the element
+html_element.classList.remove(class_name) --> remove the class from the list.
+html_element.classList.add(class_name) --> adds the class to the list.
+
+Array.from method -->
+new_real_array = Array.from(iterable): It allows you to convert an array-like object (such as a NodeList, HTMLCollection, or a string) or any iterable object (like Set, Map, etc.) into a real Array.
+
+.children attribute -->
+html_element.children : This returns the list of all the childrens of an html_element.
+
+[important] Just like in python (tkinter library), JS also passes a 'event' parameter/variable to the callback function which holds all the information about the event including on which widget/button did event occured as,
+html_element.addEventListener('click', (event)=>{
+    console.log(event);
+    html_element = event.target;
+})
+
+console.log(console) : logs out all the available method with console object.
+
+To check the time taken by a set of code to execute, we can write 3 parts in the code as-->
+console.time('process_name'): This starts calculating time.
+code to be executed
+console.timeEnd('process_name'): This stops counting time and prints the time interval between console.time and console.timeEnd for the process 'process_name'
+
+DOM (document object model) vs BOM (browser object model) --> 
+DOM is a representation of all the HTML elements in our JS code. All the html elements are accessible to us in the form of an JS object.
+BOM is a way to access browser methods/functionalities in JS, like alert, location etc. [Features that are not a part of HTML, but browser]

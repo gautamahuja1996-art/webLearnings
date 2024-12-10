@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* visualize both these boxes by inspecting the page and going to the layout */
+
+        /* for container 1, the width and height of the content (or content box, according to the box model) is 350 and 150, whereas the total width and height of the element is more (+padding+border+margin) */
+        .container1{
+            width: 350px;
+            height: 150px;
+            background-color: red;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 10px;
+            box-sizing: content-box;
+        }
+
+        /* for container 2, the width and height of the complete element (or border box, according to the box model) is 350 and 150 (content, padding and border, everything included) */
+        .container2{
+            width: 350px;
+            height: 150px;
+            background-color: burlywood;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos similique ullam esse modi inventore temporibus cumque nam cupiditate perspiciatis!
+    </div>
+
+    <div class="container2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum temporibus nihil nam repudiandae, voluptates dolores quidem possimus qui saepe, a nemo dolor aut natus, nobis explicabo rerum error consequuntur suscipit!
+    </div>
+</body>
+</html>

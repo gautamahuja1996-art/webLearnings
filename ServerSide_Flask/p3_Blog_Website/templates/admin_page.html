@@ -1,0 +1,72 @@
+{% extends "default.html" %}
+{% block body %}
+
+
+<!-- Page Header-->
+<!-- url('{{url_for('static', filename='assets/img/home-bg.jpg')}}') -->
+<header class="masthead" style="background-image: url('static/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Admin Page</h1>
+                    <span class="subheading">Organize your Blogs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="manage_blogs">
+        <h1>Manage Blogs</h1>
+        <hr>
+        <!-- GET request on page edit/0 to add a post -->
+        <a href="/change/0"><button class="btn btn-primary">Add Blog</button></a>
+
+        <!-- logout button -->
+        <a href="/logout"><button class="btn btn-primary">Logout</button></a><hr>
+
+        <!-- uploading a file -->
+        <div class="upload_file">
+            <h2>Upload a file</h2>
+
+            <!-- submit button will hit a post request to the uploader route with the file -->
+            <!-- If we want that our form can handle the file data effectively, use the enctype attribute as multipart/form-data -->
+            <form action="/uploader" method="post" enctype="multipart/form-data">
+                <input type="file" name="file_uploader">
+                <input type="submit" class="btn btn-primary" value="Upload">
+            </form>
+        </div>
+    </div>
+    <hr>
+    <!-- let's create a table here to hold our blogs -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Subheading</th>
+                <th scope="col">Author</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Applying a for loop -->
+            {% for blog in blogs %}
+            <tr>
+                <th scope="row">{{blog.id}}</th>
+                <td>{{blog.heading}}</td>
+                <td>{{blog.subheading}}</td>
+                <td>{{blog.author}}</td>
+                <td><a href="change/{{blog.id}}"><button class="btn btn-primary">Edit</button></a></td>
+                <td><a href="delete/{{blog.id}}"><button class="btn btn-primary">Delete</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

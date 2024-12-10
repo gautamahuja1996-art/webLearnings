@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            background-color: lightyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightseagreen;
+            border: 2px solid greenyellow;
+            animation: width_height_update 2s ease-in-out 1s infinite alternate-reverse;
+        }
+
+        /* creating a keyframe animation */
+        @keyframes width_height_update {
+            from{
+                width: 200px;
+                height: 200px;
+            }
+            to{
+                width: 400px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, harum nemo nisi sed accusamus labore sequi dolorum quidem fugiat rem nostrum vel quod cumque quia architecto sapiente magnam nobis aut voluptatum, eos soluta delectus.</div>
+    </div>
+</body>
+</html>

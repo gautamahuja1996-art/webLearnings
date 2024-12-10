@@ -1,0 +1,25 @@
+{
+    "params":{
+        "localserver": "True",
+        "local_server_uri": "mysql://root:password1996@localhost/orm",
+        "production_server_uri": "mysql://root:password1996@localhost/orm",
+        "facebook_uri": "https://www.facebook.com/gautamahuja",
+        "twitter_uri": "https://www.twitter.com/gautamahuja",
+        "github_uri": "https://www.github.com/gautamahuja",
+        "blog_name": "Gautam's Blog",
+        "tag_line": "Express yourselves",
+        "posts_to_display": 2,
+        "admin_username": "ahuja.gautam1996@gmail.com",
+        "admin_password": "P@ssword1996",
+        "upload_location":"static"
+    },
+    "email_credentials": {
+        "server": "smtp.gmail.com",
+        "port": "587",
+        "use_tls": "True",
+        "username": "gourichauhan2@gmail.com",
+        "password": "Incorrect@1818",
+        "password_for_gmail_smtp": "nbivqabzmnhupesl",
+        "recipients": "['gourichauhan2@gmail.com', 'ahuja.gautam1996@gmail.com']"
+    }
+}

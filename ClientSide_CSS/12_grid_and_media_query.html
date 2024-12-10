@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid arrangement</title>
+
+    <!-- Adding styles -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main_container{
+            background-color: yellow;
+            display: grid;
+            height: 50vh;
+            grid-template-columns: 30px 30px 30px;
+            grid-template-rows: 30px 30px 30px 30px;
+            grid-gap: 20px 20px;
+            justify-content: center;
+            align-content: center;
+        }
+        .item{
+            background-color: lightyellow;
+            border: 2px solid black;
+        }
+        .first_item{
+            grid-column: 1/3;
+            grid-row: 1/span 3;
+        }
+        .media_container{
+            background-color: black;
+            color: white;
+        }
+        @media screen and (max-width: 600px){
+            .media_container{
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container">
+        <div class="item first_item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+    </div>
+
+    <div class="media_container">
+        <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos error quia dolores autem optio totam reiciendis at blanditiis placeat pariatur? Laboriosam voluptas, ut numquam totam aliquid sequi velit, inventore sapiente dolore quos, veniam possimus mollitia saepe repudiandae recusandae provident nihil sunt ab non laudantium labore similique harum eaque? Itaque fugit earum nulla nobis quas aspernatur, quia eos eaque maiores ipsam incidunt dolorum voluptates reprehenderit alias id distinctio tempore accusantium quos possimus sunt explicabo. Fuga, officia. Temporibus vero incidunt fugiat ab, eveniet excepturi sed delectus aliquam! Aliquid sunt molestias nobis, tempore doloribus non beatae facilis error. Quos vel numquam doloribus voluptate.</p>
+    </div>
+</body>
+</html>
